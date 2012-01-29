@@ -71,7 +71,7 @@ public class Excel2LaTex {
 		case '/':
 		case '*':
 		case '=':
-		case ' ':
+		//case ' ':
 		case '{':
 		case '}':
 		case '\\':
@@ -655,6 +655,16 @@ public class Excel2LaTex {
 
 		s = excelString;
 
+		// Some tests
+		//s = "1/ (3+4)";
+		// s = "(1*1/2+4^2/4^3)^2";
+		// s = "(1/2)^2";
+		// s = "A_1+3^(9-1)+SUMME(A1:I3)";
+		// s = "SUMME(A1:B12)+12+WURZEL(199)+EXP(1/T)+(1+(1+(1)))";
+		// s = "A_1^(1/3)+1/(1+x_2)+SUMME(A1:C6)+SIN(2*PI())+ABS(EXP(T/T_N))+WENN(x<10;0;10)";
+		// s = "(SUMME(A1:B2))^(1/3)";
+
+		
 		// Convert German function names
 		s= s.replace("ADRESSE(", "ADDRESS(");
 		s= s.replace("INDIREKT(", "INDIRECT(");
@@ -727,11 +737,3 @@ public class Excel2LaTex {
 }
 
 
-// Some tests
-
-// = (1*1/2+4^2/4^3)^2
-// = (1/2)^2
-// =A_1+3^(9-1)+SUMME(A1:I3)
-// =SUMME(A1:B12)+12+WURZEL(199)+EXP(1/T)+(1+(1+(1)))
-// = A_1^(1/3)+1/(1+x_2)+SUMME(A1:C6)+SIN(2*PI())+ABS(EXP(T/T_N))+WENN(x<10;0;10)
-// = (SUMME(A1:B2))^(1/3)
